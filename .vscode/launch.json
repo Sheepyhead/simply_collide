@@ -1,0 +1,73 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug example 'basic'",
+      "cargo": {
+        "args": [
+          "build",
+          "--example=basic",
+          "--package=simply_collide"
+        ],
+        "filter": {
+          "name": "basic",
+          "kind": "example"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "CARGO_MANIFEST_DIR": "${workspaceFolder}"
+      }
+    }
+    // {
+    //   "type": "lldb",
+    //   "request": "launch",
+    //   "name": "Debug unit tests in library 'simply_collide'",
+    //   "cargo": {
+    //     "args": [
+    //       "test",
+    //       "--no-run",
+    //       "--lib",
+    //       "--package=simply_collide"
+    //     ],
+    //     "filter": {
+    //       "name": "simply_collide",
+    //       "kind": "lib"
+    //     }
+    //   },
+    //   "args": [],
+    //   "cwd": "${workspaceFolder}",
+    //   "env": {
+    //     "CARGO_MANIFEST_DIR": "${workspaceFolder}"
+    //   }
+    // },
+    // {
+    //   "type": "lldb",
+    //   "request": "launch",
+    //   "name": "Debug unit tests in example 'basic'",
+    //   "cargo": {
+    //     "args": [
+    //       "test",
+    //       "--no-run",
+    //       "--example=basic",
+    //       "--package=simply_collide"
+    //     ],
+    //     "filter": {
+    //       "name": "basic",
+    //       "kind": "example"
+    //     }
+    //   },
+    //   "args": [],
+    //   "cwd": "${workspaceFolder}",
+    //   "env": {
+    //     "CARGO_MANIFEST_DIR": "${workspaceFolder}"
+    //   }
+    // }
+  ]
+}
