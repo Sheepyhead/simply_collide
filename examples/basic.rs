@@ -1,4 +1,7 @@
-use bevy::prelude::*;
+use bevy::{
+    input::{keyboard::KeyboardInput, ElementState},
+    prelude::*,
+};
 use bevy_inspector_egui::WorldInspectorPlugin;
 use simply_collide::prelude::*;
 
@@ -19,5 +22,37 @@ fn setup(mut commands: Commands) {
             shape: ColliderShape::Circle(50.0),
             ..ColliderBundle::default()
         })
-        .insert(ColliderDebugRender { color: Color::RED });
+        .insert_bundle((ColliderDebugRender { color: Color::RED }, Player));
+}
+
+#[derive(Component)]
+struct Player;
+
+fn input(mut events: EventReader<KeyboardInput>, mut player: Query<&mut Transform, With<Player>>) {
+    for event in events.iter() {
+        let transform = player.single_mut();
+        match event {
+            KeyboardInput {
+                key_code: Some(KeyCode::E),
+                state: ElementState::Pressed,
+                ..
+            } => {}
+            KeyboardInput {
+                key_code: Some(KeyCode::O),
+                state: ElementState::Pressed,
+                ..
+            } => {}
+            KeyboardInput {
+                key_code: Some(KeyCode::Comma),
+                state: ElementState::Pressed,
+                ..
+            } => {}
+            KeyboardInput {
+                key_code: Some(KeyCode::A),
+                state: ElementState::Pressed,
+                ..
+            } => {}
+            _ => {}
+        }
+    }
 }
